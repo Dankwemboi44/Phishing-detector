@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Phishing Detector - Kiswahili/Sheng</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        max-width: 700px;
+        margin: 50px auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .container {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+      }
+      textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 16px;
+        font-family: monospace;
+        box-sizing: border-box;
+        resize: vertical;
+      }
+      textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+      button {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+      }
+      .result {
+        margin-top: 25px;
+        padding: 20px;
+        border-radius: 10px;
+        animation: fadeIn 0.5s;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .phishing {
+        background: #fee;
+        border-left: 4px solid #e74c3c;
+      }
+      .safe {
+        background: #efe;
+        border-left: 4px solid #27ae60;
+      }
+      .phishing h3 {
+        color: #e74c3c;
+        margin: 0 0 10px 0;
+      }
+      .safe h3 {
+        color: #27ae60;
+        margin: 0 0 10px 0;
+      }
+      .confidence {
+        font-size: 12px;
+        color: #888;
+        margin-top: 10px;
+      }
+      .message-display {
+        background: #f5f5f5;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+        font-size: 14px;
+        font-family: monospace;
+        word-wrap: break-word;
+      }
+      .examples {
+        margin-top: 30px;
+        padding: 15px;
+        background: #f9f9f9;
+        border-radius: 10px;
+      }
+      .example-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      .example-btn {
+        background: #e0e7ff;
+        color: #4f46e5;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 12px;
+        cursor: pointer;
+        border: none;
+      }
+      .example-btn:hover {
+        background: #667eea;
+        color: white;
+      }
+      .error {
+        background: #ffeaa7;
+        color: #d63031;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+        border-left: 4px solid #d63031;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 12px;
+        color: #999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔐 Kiswahili/Sheng Phishing Detector</h1>
+      <div class="subtitle">
+        AI-powered protection against scams in local languages
+      </div>
+
+      <form method="POST" action="/predict">
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Paste message here..."
+        ></textarea>
+        <button type="submit">🔍 Check Message</button>
+      </form>
+
+      {% if error %}
+      <div class="error">⚠️ {{ error }}</div>
+      {% endif %} {% if result %}
+      <div class="result {{ result.prediction }}">
+        <h3>
+          {{ '⚠️ PHISHING MESSAGE DETECTED!' if result.is_phishing else '✅ SAFE
+          MESSAGE' }}
+        </h3>
+        <div class="confidence">
+          Confidence: {{ "%.1f"|format(result.confidence * 100) }}%
+        </div>
+        <div class="message-display">
+          <strong>Message:</strong> "{{ result.message }}"
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="examples">
+        <strong>📋 Try these examples:</strong>
+        <div class="example-buttons">
+          <button
+            class="example-btn"
+            onclick="fillMessage('Bofya link hii upate 10000 KES free airtime')"
+          >
+            🔴 Phishing: Prize
+          </button>
+          <button
+            class="example-btn"
+            onclick="fillMessage('Account yako imefreeze thibitisha hapa')"
+          >
+            🔴 Phishing: Account Freeze
+          </button>
+          <button
+            class="example-btn"
+            onclick="fillMessage('Niaje bro tukutane stage 7')"
+          >
+            🟢 Safe: Meeting
+          </button>
+          <button
+            class="example-btn"
+            onclick="fillMessage('Kazi iko leo Rongai')"
+          >
+            🟢 Safe: Job
+          </button>
+        </div>
+      </div>
+
+      <div class="footer">
+        COMP 414 Project | Protects against phishing in Kiswahili, Sheng &
+        code-switched text
+      </div>
+    </div>
+
+    <script>
+      function fillMessage(text) {
+        document.querySelector("textarea").value = text;
+      }
+    </script>
+  </body>
+</html>
