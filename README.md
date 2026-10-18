@@ -1,13 +1,13 @@
-# 🔐 Advanced Phishing Detection System for Kiswahili & Sheng
+# Advanced Phishing Detection System for Kiswahili & Sheng
 
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Flask](https://img.shields.io/badge/Flask-2.3+-red.svg)](https://flask.palletsprojects.com)
 [![ML](https://img.shields.io/badge/ML-RandomForest-orange.svg)](https://scikit-learn.org)
 
-## 🎯 Overview
+## Overview
 
-An **AI-powered phishing detection system** specifically designed for **Kiswahili, Sheng, and code-switched messages** commonly used in Kenya. This system protects users from SMS, WhatsApp, and social media scams that traditional English-only detectors miss.
+An AI-powered phishing detection system specifically designed for Kiswahili, Sheng, and code-switched messages commonly used in Kenya. This system protects users from SMS, WhatsApp, and social media scams that traditional English-only detectors miss.
 
 ### Why This Matters
 
@@ -16,19 +16,19 @@ An **AI-powered phishing detection system** specifically designed for **Kiswahil
 - Sheng evolves rapidly, requiring adaptive detection
 - Code-switching confuses traditional NLP models
 
-## ✨ Key Features
+## Key Features
 
 | Feature | Description | Status |
 |---------|-------------|--------|
-| 🔗 **URL Analysis** | Detects malicious links, shorteners, and suspicious domains | ✅ |
-| 👤 **Sender Reputation** | Tracks reported scam numbers and builds trust scores | ✅ |
-| 🧠 **Pattern Learning** | Adapts to new phishing patterns from user feedback | ✅ |
-| 📊 **Risk Dashboard** | Visual breakdown of why a message is flagged | ✅ |
-| ⚡ **Batch Processing** | Scan multiple messages at once | ✅ |
-| 🌐 **Multi-language** | English, Kiswahili, Sheng, code-switching | ✅ |
-| 🎯 **Real-time** | <100ms response time | ✅ |
+| URL Analysis | Detects malicious links, shorteners, and suspicious domains | Working |
+| Sender Reputation | Tracks reported scam numbers and builds trust scores | Working |
+| Pattern Learning | Adapts to new phishing patterns from user feedback | Working |
+| Risk Dashboard | Visual breakdown of why a message is flagged | Working |
+| Batch Processing | Scan multiple messages at once | Working |
+| Multi-language | English, Kiswahili, Sheng, code-switching | Working |
+| Real-time | <100ms response time | Working |
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
