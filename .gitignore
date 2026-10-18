@@ -1,38 +1,19 @@
-# Python
-__pycache__/
-*.py[cod]
-*.so
-.Python
-
-# Virtual environments
-venv/
-env/
-ENV/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-
-# Data files (too large for git)
-*.csv
-*.pkl
-*.h5
-*.joblib
-
-# Model files
-models/*.pkl
-models/*.h5
-
-# Logs
-*.log
-
-# Environment variables
-.env
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Jupyter notebooks (optional - some people commit these)
-.ipynb_checkpoints/
+__pycache__/ 
+*.pyc 
+*.pyo 
+*.pyd 
+.Python 
+env/ 
+venv/ 
+ENV/ 
+.venv/ 
+*.pkl 
+*.joblib 
+models/production/*.pkl 
+sender_reputation.json 
+phishing_patterns.json 
+.vscode/ 
+.idea/ 
+*.log 
+reports/ 
+__pycache__/ 
